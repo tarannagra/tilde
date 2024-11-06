@@ -3,7 +3,8 @@
 <meta name="color-scheme" content="dark light" />
 <meta name="robots" content="noindex" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>~</title>
+<title>Tilde</title>
+<link rel="icon" href="./assets/Terminal.png" type="image/x-icon">
 
 <style>
   :root {
@@ -33,35 +34,53 @@
     commandPathDelimiter: '/',
     commandSearchDelimiter: ' ',
     defaultSearchTemplate: 'https://duckduckgo.com/?q={}',
-    openLinksInNewTab: true,
+    openLinksInNewTab: false,
     suggestionLimit: 4,
   };
 
-  // prettier-ignore
+  // Changed up the COMMANDS map to allow for my needs and not the defaults
+  // Alphabetised since I prefer it like this
   const COMMANDS = new Map([
-    ['a', { name: 'Alphabet', searchTemplate: '/search?q={}', suggestions: ['a/drive', 'a/cal'], url: 'https://google.com' }],
-    ['a/cal', { url: 'https://calendar.google.com' }],
-    ['a/drive', { url: 'https://drive.google.com/drive/u/0/my-drive' }],
-    ['c', { name: 'Cloudflare', url: 'https://dash.cloudflare.com' }],
-    ['f', { name: 'Figma', url: 'https://www.figma.com' }],
-    ['g', { name: 'GitHub', searchTemplate: '/search?q={}', suggestions: ['g/copilot', 'g/trending'], url: 'https://github.com' }],
-    ['i', { name: 'Intuit', url: 'https://selfemployed.intuit.com/home' }],
-    ['o', { name: 'OpenAI', searchTemplate: '?q={}', url: 'https://chatgpt.com' }],
-    ['p', { name: 'Proton', searchTemplate: '/u/0/all-mail#keyword={}', suggestions: ['p/pass', 'p/drive'], url: 'https://mail.proton.me/u/0/inbox' }],
-    ['p/drive', { url: 'https://drive.proton.me/u/0/' }],
-    ['p/pass', { url: 'https://pass.proton.me/u/0/' }],
-    ['s', { name: 'Supabase', url: 'https://supabase.com/dashboard/projects' }],
-    ['t', { name: 'TickTick', suggestions: ['t/habits', 't/pomo'], url: 'https://ticktick.com/webapp/#q/today/tasks' }],
-    ['t/habits', { url: 'https://ticktick.com/webapp/#q/all/habit' }],
-    ['t/pomo', { url: 'https://ticktick.com/webapp/#focus' }],
-    ['v', { name: 'Vercel', url: 'https://vercel.com/dashboard' }],
-    ['x', { name: 'xvvvyz', suggestions: ['x/torrent', 'x/proxy', 'x/droplet'], url: 'https://xvvvyz.xyz' }],
-    ['x/droplet', { url: 'https://cloud.digitalocean.com/projects/50ffcff7-ad65-40e3-af88-3cbc5a38cf99/resources' }],
-    ['x/proxy', { url: 'https://proxy.xvvvyz.xyz' }],
-    ['x/torrent', { url: 'https://torrent.xvvvyz.xyz' }],
-    ['0', { name: 'local', suggestions: ['0:54323', '0:54324'], url: 'http://localhost:3000' }],
-    ['0:54323', { url: 'http://localhost:54323' }],
-    ['0:54324', { url: 'http://localhost:54324' }],
+    
+    // Aula
+    ['a', {name: 'Aula', url: 'https://coventry.aula.education/?#/dashboard', suggestions: ['a/individual project preparation', 'a/security', 'a/machine learning', 'a/developing your career']}],
+    ['a/individual project preparation', {url: "https://coventry.aula.education/?#/dashboard/1aecbbc9-ed52-4a4e-9166-19d206896a4c/community/feed"}],
+    ['a/security', {url: "https://coventry.aula.education/?#/dashboard/2c25f565-2ea5-40f9-bf97-343039c395f3/community/feed"}],
+    ['a/machine learning', {url: "https://coventry.aula.education/?#/dashboard/80780f96-073a-4ffe-9377-acf7775e910c/community/feed"}],
+    ['a/developing your career', {url: "https://coventry.aula.education/?#/dashboard/7397fe33-a243-4bb3-9867-b615d2725343/community/feed"}],
+    
+    // Destiny 2
+    ['d', {name: "Destiny", suggestions: ['d/dim', 'd/engramblue', 'd/mobalytics']}],
+    ['d/dim', {url: 'https://app.destinyitemmanager.com/4611686018517084183/d2/inventory'}],
+    ['d/engramblue', {url: 'https://engram.blue/'}],
+    ['d/mobalytics', {url: 'https://mobalytics.gg/destiny-2/builds'}],
+    
+    // Google Stuff
+    ['g', {name: 'Google', searchTemplate: './search?q={}', suggestions: ['g/mail', 'g/drive'], url: 'https://google.com' }],
+    ['g/mail', {url: 'https://mail.google.com/mail/u/2/#inbox' }],
+    
+    // GitHub :D
+    ['gh', {name: 'GitHub', searchTemplate: '/search?q={}', suggestions: ['gh/tarannagra'], url: 'https://github.com' }],
+    
+    // Jellyfin Media Server
+    ['j', {name: 'Jellyfin', url: 'http://localhost:8096/web/index.html' }],
+    
+    // Prowlarr
+    ['p', {name: 'Prowlarr', url: 'http://localhost:9696/search' }],
+    
+    // Reddit (sorted by most visited ones)
+    ['r', {name: "Reddit", url: "https://reddit.com", suggestions: ['r/obsidian', 'r/piracy', 'r/privacy', 'r/unixporn']}],
+    ['r/obsidian', {url: "https://reddit.com/r/ObsidianMD"}],
+    ['r/piracy', {url: "https://reddit.com/r/Piracy"}],
+    ['r/privacy', {url: "https://reddit.com/r/privacy"}],
+    ['r/unixporn', {url: "https://reddit.com/r/unixporn"}],
+
+    // qBitTorrent WebUI
+    ['v', {name: 'VueTorrent', url: 'http://127.0.0.1:8080/#/' }],
+    
+    // YouTube Stuffs
+    ['y', {name: "YouTube", url: "https://youtube.com", suggestions: ['y/music']}],
+    ['y/music', {url: "https://music.youtube.com" }],
   ]);
 </script>
 
