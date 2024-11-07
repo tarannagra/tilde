@@ -84,6 +84,15 @@
   ]);
 </script>
 
+<script>
+  window.onload = () => {
+      setTimeout(() => {
+          window.focus();
+          document.body.focus(); // Fallback
+      }, 10);
+  };
+</script>
+
 <template id="commands-template">
   <style>
     .commands {
