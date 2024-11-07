@@ -85,11 +85,8 @@
 </script>
 
 <script>
-  window.onload = () => {
-      setTimeout(() => {
-          window.focus();
-          document.body.focus(); // Fallback
-      }, 10);
+  window.onload = function() {
+    document.getElementById("search-bar").focus();
   };
 </script>
 
@@ -303,7 +300,7 @@
   </style>
   <dialog class="dialog">
     <form autocomplete="off" class="form" method="dialog" spellcheck="false">
-      <input class="input" title="search" type="text" />
+      <input class="input" title="search" type="text" id="search-bar" autofocus />
       <menu class="suggestions"></menu>
     </form>
   </dialog>
