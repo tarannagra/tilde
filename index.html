@@ -35,7 +35,7 @@
     commandSearchDelimiter: ' ',
     defaultSearchTemplate: 'https://duckduckgo.com/?q={}',
     openLinksInNewTab: false,
-    suggestionLimit: 4,
+    suggestionLimit: 5,
   };
 
   // Changed up the COMMANDS map to allow for my needs and not the defaults
@@ -44,21 +44,23 @@
     
     // Aula
     ['a', {name: 'Aula', url: 'https://coventry.aula.education/?#/dashboard', suggestions: ['a/individual project preparation', 'a/security', 'a/machine learning', 'a/developing your career']}],
-    ['a/individual project preparation', {url: "https://coventry.aula.education/?#/dashboard/1aecbbc9-ed52-4a4e-9166-19d206896a4c/community/feed"}],
-    ['a/security', {url: "https://coventry.aula.education/?#/dashboard/2c25f565-2ea5-40f9-bf97-343039c395f3/community/feed"}],
-    ['a/machine learning', {url: "https://coventry.aula.education/?#/dashboard/80780f96-073a-4ffe-9377-acf7775e910c/community/feed"}],
-    ['a/developing your career', {url: "https://coventry.aula.education/?#/dashboard/7397fe33-a243-4bb3-9867-b615d2725343/community/feed"}],
+    ['a/ipp', {url: "https://coventry.aula.education/?#/dashboard/1aecbbc9-ed52-4a4e-9166-19d206896a4c/community/feed"}],
+    ['a/s', {url: "https://coventry.aula.education/?#/dashboard/2c25f565-2ea5-40f9-bf97-343039c395f3/community/feed"}],
+    ['a/ml', {url: "https://coventry.aula.education/?#/dashboard/80780f96-073a-4ffe-9377-acf7775e910c/community/feed"}],
+    ['a/dyc', {url: "https://coventry.aula.education/?#/dashboard/7397fe33-a243-4bb3-9867-b615d2725343/community/feed"}],
     
-    // Destiny 2
+    // Destiny 2 (doesn't show on the list, but I prefer like this)
+    // I think this is because of no base url parameter (url: 'https://abc.xyz/')
     ['d', {name: "Destiny", suggestions: ['d/dim', 'd/engramblue', 'd/mobalytics']}],
     ['d/dim', {url: 'https://app.destinyitemmanager.com/4611686018517084183/d2/inventory'}],
     ['d/engramblue', {url: 'https://engram.blue/'}],
     ['d/mobalytics', {url: 'https://mobalytics.gg/destiny-2/builds'}],
     
     // Google Stuff
-    ['g', {name: 'Google', searchTemplate: './search?q={}', suggestions: ['g/mail', 'g/gemini'], url: 'https://google.com' }],
+    ['g', {name: 'Google', searchTemplate: '/search?q={}&udm=14', suggestions: ['g/gemini', 'g/images', 'g/mail'], url: 'https://google.com' }],
     ['g/mail', {url: 'https://mail.google.com/mail/u/2/#inbox' }],
     ['g/gemini', {url: "https://gemini.google.com"}],
+    ['g/images', {url: "https://www.google.com/search?q={}&udm=2"}],
     
     // GitHub :D
     ['gh', {name: 'GitHub', searchTemplate: '/search?q={}', suggestions: ['gh/tarannagra'], url: 'https://github.com' }],
@@ -66,11 +68,16 @@
     // Jellyfin Media Server
     ['j', {name: 'Jellyfin', url: 'http://localhost:8096/web/index.html' }],
     
+    // LLMs
+    ['l', {name: 'LLMs', suggestions: ['l/gpt', 'l/gemini']}],
+    ['l/gpt', {url: "https://chatgpt.com"}],
+    ['l/gemini', {url: "https://gemini.google.com"}],
+
     // Prowlarr
     ['p', {name: 'Prowlarr', url: 'http://localhost:9696/search' }],
     
     // Reddit (sorted by most visited ones)
-    ['r', {name: "Reddit", url: "https://reddit.com", suggestions: ['r/obsidian', 'r/piracy', 'r/privacy', 'r/unixporn']}],
+    ['r', {name: "Reddit", url: "https://reddit.com", searchTemplate: "/r/{}", suggestions: ['r/obsidian', 'r/piracy', 'r/privacy', 'r/unixporn']}],
     ['r/obsidian', {url: "https://reddit.com/r/ObsidianMD"}],
     ['r/piracy', {url: "https://reddit.com/r/Piracy"}],
     ['r/privacy', {url: "https://reddit.com/r/privacy"}],
@@ -80,7 +87,7 @@
     ['v', {name: 'VueTorrent', url: 'http://127.0.0.1:8080/#/' }],
     
     // YouTube Stuffs
-    ['y', {name: "YouTube", url: "https://www.youtube.com/results?search_query={}", suggestions: ['y/music']}],
+    ['y', {name: "YouTube", url: "https://www.youtube.com/", searchTemplate: "results?search_query={}", suggestions: ['y/music']}],
     ['y/music', {url: "https://music.youtube.com" }],
   ]);
 </script>
